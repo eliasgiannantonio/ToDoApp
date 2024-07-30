@@ -27,6 +27,12 @@ const ToDo = () => {
         inputRef.current.value = "";
     }
 
+    const eliminar = (id) => {
+        setTodoList((prevTodos) => {
+            return prevTodos.filter((todo) => todo.id !== id)
+        })
+    }
+
 
 
   return (
@@ -43,8 +49,9 @@ const ToDo = () => {
         </div>
 
         <div>
-            <ToDoItem/>
-            <ToDoItem/>
+            {todoList.map((item, index) => {
+                return <ToDoItem key={index} text={item.text} id={item.id} isComplete={item.isComplete} eliminar={eliminar}/>
+            })}
         </div>
 
     </div>

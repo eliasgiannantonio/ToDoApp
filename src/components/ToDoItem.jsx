@@ -3,7 +3,7 @@ import tick from "../assets/tick.png"
 import not_tick from "../assets/not_tick.png"
 import delete_icon from "../assets/delete.png"
 
-const ToDoItem = ({text}) => {
+const ToDoItem = ({text, id, isComplete, eliminar}) => {
   return (
     <div className='flex items-center my-3 gap-2'>
 
@@ -12,7 +12,7 @@ const ToDoItem = ({text}) => {
             <p className='text-slate-700 ml-4 text-[17px]'>{text}</p>
         </div>
 
-        <img src={delete_icon} alt="" className='w-3.5 cursor-pointer'/>
+        <img onClick={() => {eliminar(id)}} src={delete_icon} alt="" className='w-3.5 cursor-pointer'/>
 
     </div>
   )
